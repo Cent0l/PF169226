@@ -36,3 +36,8 @@ test/
 
 
   
+terminy i forma zaliczen:
+termin oddania 18 maja
+projekt trzeba opisac w readme.md
+musi byc requierments.txt
+zachowaj logicznosc i nazywanie klas i metod, nie badz debilem
