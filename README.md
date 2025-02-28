@@ -5,6 +5,7 @@ piszemy w pythonie
 potem projekt
 obiektowe, podobne do javy (patrz, repo obiektowe)
 https://github.com/Cent0l/Programowanie_obiektowe
+https://piojas.pl/2025/02/27/przedmiot-fakultatywny-cwiczenia-semestr-letni-2024-25/
 
 czasami zadania dodatkowe beda
 
