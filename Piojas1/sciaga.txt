@@ -1,0 +1,15 @@
+1. assertEqual(a, b) - sprawdza, czy a == b
+2. assertNotEqual(a, b) - sprawdza, czy a != b
+3. assertTrue(x) - sprawdza, czy bool(x) is True
+4. assertFalse(x) - sprawdza, czy bool(x) is False
+5. assertIs(a, b) - sprawdza, czy a is b
+6. assertIsNot(a, b) - sprawdza, czy a is not b
+7. assertIsNone(x) - sprawdza, czy x is None
+8. assertIsNotNone(x) - sprawdza, czy x is not None
+9. assertIn(a, b) - sprawdza, czy a in b
+10. assertNotIn(a, b) - sprawdza, czy a not in b
+11. assertIsInstance(a, b) - sprawdza, czy isinstance(a, b)
+12. assertNotIsInstance(a, b) - sprawdza, czy not isinstance(a, b)
+13. assertRaises(exception, callable, *args, **kwargs) - sprawdza, czy wywołanie
+funkcji zgłasza określony wyjątek
+14. assertAlmostEqual(a, b) - sprawdza, czy a  b (przydatne dla liczb zmiennoprzecinkowych)
