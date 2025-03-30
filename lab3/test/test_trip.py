@@ -1,5 +1,5 @@
 import unittest
-from second.src.trip import Trip  # Importujemy klasę Trip
+from second.src.trip import Trip  
 
 class TestTrip(unittest.TestCase):
 
