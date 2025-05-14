@@ -1,6 +1,7 @@
 import pytest
 from src.game_manager import GameManager
 
+
 @pytest.fixture
 def sample_game():
     return {
@@ -9,6 +10,7 @@ def sample_game():
         "hours_played": 100,
         "completion_date": "2023-12-01"
     }
+
 
 @pytest.fixture
 def manager_with_games():
@@ -22,11 +24,13 @@ def manager_with_games():
         manager.add_game(g)
     return manager
 
+
 def test_add_game(sample_game):
     manager = GameManager()
     manager.add_game(sample_game)
     assert len(manager.get_all_games()) == 1
     assert manager.get_game("The Witcher 3") == sample_game
+
 
 def test_remove_existing_game(sample_game):
     manager = GameManager()
@@ -34,9 +38,11 @@ def test_remove_existing_game(sample_game):
     assert manager.remove_game("The Witcher 3") is True
     assert manager.get_game("The Witcher 3") is None
 
+
 def test_remove_nonexistent_game():
     manager = GameManager()
     assert manager.remove_game("Nonexistent") is False
+
 
 def test_edit_existing_game(sample_game):
     manager = GameManager()
@@ -46,34 +52,42 @@ def test_edit_existing_game(sample_game):
     assert manager.edit_game("The Witcher 3", updated_game) is True
     assert manager.get_game("The Witcher 3")["hours_played"] == 150
 
+
 def test_edit_nonexistent_game(sample_game):
     manager = GameManager()
     assert manager.edit_game("NotThere", sample_game) is False
+
 
 def test_get_game_returns_none_for_missing():
     manager = GameManager()
     assert manager.get_game("Missing Game") is None
 
+
 def test_get_all_games_empty():
     manager = GameManager()
     assert manager.get_all_games() == []
+
 
 def test_get_all_games_with_data(sample_game):
     manager = GameManager()
     manager.add_game(sample_game)
     assert len(manager.get_all_games()) == 1
 
+
 def test_add_multiple_games(manager_with_games):
     assert len(manager_with_games.get_all_games()) == 3
+
 
 def test_remove_game_from_multiple(manager_with_games):
     assert manager_with_games.remove_game("Game B") is True
     assert manager_with_games.get_game("Game B") is None
 
+
 def test_edit_game_in_multiple(manager_with_games):
     updated = {"title": "Game B", "platform": "PS5", "hours_played": 25, "completion_date": "2023-02-01"}
     assert manager_with_games.edit_game("Game B", updated) is True
     assert manager_with_games.get_game("Game B")["platform"] == "PS5"
+
 
 @pytest.mark.parametrize("title", ["Game A", "Game B", "Game C", "Nonexistent"])
 def test_get_game_various_titles(manager_with_games, title):
@@ -83,6 +97,7 @@ def test_get_game_various_titles(manager_with_games, title):
     else:
         assert game is not None
         assert game["title"] == title
+
 
 @pytest.mark.parametrize("new_title", ["Game X", "Game Y", "Game Z"])
 def test_add_and_find_games(new_title):
@@ -96,11 +111,13 @@ def test_add_and_find_games(new_title):
     manager.add_game(game)
     assert manager.get_game(new_title)["title"] == new_title
 
+
 def test_remove_game_case_sensitive():
     manager = GameManager()
     manager.add_game({"title": "CaseTest", "platform": "PC", "hours_played": 5, "completion_date": "2023-11-11"})
     assert manager.remove_game("casetest") is False
     assert manager.remove_game("CaseTest") is True
+
 
 def test_edit_game_case_sensitive():
     manager = GameManager()
@@ -110,6 +127,7 @@ def test_edit_game_case_sensitive():
     updated["platform"] = "Mobile"
     assert manager.edit_game("edittest", updated) is False
     assert manager.edit_game("EditTest", updated) is True
+
 
 @pytest.mark.parametrize("index", range(20))
 def test_bulk_add_and_remove(index):

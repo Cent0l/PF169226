@@ -2,6 +2,7 @@ from typing import List, Dict, Optional
 from collections import Counter
 from datetime import datetime
 
+
 def average_playtime(data: List[Dict]) -> float:
     """
     Zwraca średni czas grania dla wszystkich gier.
@@ -14,6 +15,7 @@ def average_playtime(data: List[Dict]) -> float:
     total = sum(game.get("hours_played", 0) for game in data)
     return round(total / len(data), 2)
 
+
 def total_playtime(data: List[Dict]) -> float:
     """
     Zwraca łączny czas grania.
@@ -21,7 +23,9 @@ def total_playtime(data: List[Dict]) -> float:
     :param data: Lista gier
     :return: Suma godzin
     """
+
     return round(sum(game.get("hours_played", 0) for game in data), 2)
+
 
 def most_used_platform(data: List[Dict]) -> Optional[str]:
     """
@@ -35,6 +39,7 @@ def most_used_platform(data: List[Dict]) -> Optional[str]:
     platforms = [game.get("platform", "") for game in data]
     counter = Counter(platforms)
     return counter.most_common(1)[0][0]
+
 
 def games_completed_by_month(data: List[Dict]) -> Dict[str, int]:
     """
@@ -52,6 +57,7 @@ def games_completed_by_month(data: List[Dict]) -> Dict[str, int]:
         except ValueError:
             continue
     return result
+
 
 def get_games_in_date_range(data: List[Dict], start: str, end: str) -> List[Dict]:
     """

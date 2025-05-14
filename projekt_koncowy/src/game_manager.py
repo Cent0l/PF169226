@@ -1,5 +1,6 @@
 from typing import List, Optional, Dict
 
+
 class GameManager:
     """
     Klasa do zarządzania listą ukończonych gier.
@@ -11,7 +12,6 @@ class GameManager:
     def add_game(self, game: Dict) -> None:
         """
         Dodaje nową grę do listy.
-
         :param game: Słownik z informacjami o grze (title, platform, hours_played, completion_date)
         """
         self.games.append(game)

@@ -2,6 +2,7 @@ import json
 from typing import List, Dict
 from datetime import datetime
 
+
 def load_data(filepath: str) -> List[Dict]:
     """
     Wczytuje dane z pliku JSON.
@@ -16,6 +17,7 @@ def load_data(filepath: str) -> List[Dict]:
         raise ValueError("Plik nie zawiera listy danych.")
     return data
 
+
 def save_data(filepath: str, data: List[Dict]) -> None:
     """
     Zapisuje dane do pliku JSON.
@@ -26,6 +28,7 @@ def save_data(filepath: str, data: List[Dict]) -> None:
     """
     with open(filepath, 'w', encoding='utf-8') as f:
         json.dump(data, f, indent=2, ensure_ascii=False)
+
 
 def validate_game_entry(entry: Dict) -> bool:
     """
